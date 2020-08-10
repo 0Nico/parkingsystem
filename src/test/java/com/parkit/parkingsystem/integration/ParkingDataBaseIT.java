@@ -73,4 +73,15 @@ public class ParkingDataBaseIT {
         
         //TODO: check that the fare generated and out time are populated correctly in the database
     }
+    
+    @Test
+    public void checkDiscountForRecurringUserTest() throws InterruptedException {
+    	ParkingService parkingService = new ParkingService(inputReaderUtil, parkingSpotDAO, ticketDAO);
+    	parkingService.processIncomingVehicle();
+    	parkingService.processExitingVehicle();
+    	Thread.sleep(1000);
+    	parkingService.processIncomingVehicle();
+    	Ticket ticket = ticketDAO.getTicket("ABCDEF");
+    	assertEquals(true, ticket.isARecurringUser());
+    }
 }
