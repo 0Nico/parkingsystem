@@ -59,7 +59,6 @@ public class ParkingDataBaseIT {
         assertEquals(true, ticket != null);
         assertEquals(nextAvailableSlot + 1, parkingService.getNextParkingNumberIfAvailable().getId());
         assertEquals(false, parkingSpotDAO.getParkingSpot(ticket.getParkingSpot().getId()).isAvailable());
-        //TODO: check that a ticket is actually saved in DB and Parking table is updated with availability
     }
 
     @Test
@@ -71,7 +70,6 @@ public class ParkingDataBaseIT {
         assertEquals(true, ticket.getOutTime() != null);
         assertEquals(true, ticket.getPrice() >= 0);
         
-        //TODO: check that the fare generated and out time are populated correctly in the database
     }
     
     @Test
