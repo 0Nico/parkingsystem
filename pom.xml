@@ -15,6 +15,7 @@
     </properties>
 
     <dependencies>
+    
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-api</artifactId>
@@ -59,6 +60,16 @@
             <artifactId>maven-assembly-plugin</artifactId>
             <version>3.0.0</version>
         </dependency>
+    	<dependency>
+		    <groupId>org.apache.maven.plugins</groupId>
+		    <artifactId>maven-site-plugin</artifactId>
+		    <version>3.7.1</version>
+		</dependency>
+		<dependency>
+        <groupId>org.apache.maven.doxia</groupId>
+        <artifactId>doxia-site-renderer</artifactId>
+        <version>1.8.1</version>
+    </dependency>
     </dependencies>
 
     <build>
@@ -85,6 +96,11 @@
                     </execution>
                  </executions>
             </plugin>
+            <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-site-plugin</artifactId>
+            <version>3.7.1</version>
+        </plugin>
             <plugin>
       <groupId>org.jacoco</groupId>
       <artifactId>jacoco-maven-plugin</artifactId>
@@ -214,20 +230,16 @@
         </execution>
       </executions>
     </plugin>
-           
+          
         </plugins>
     </build>
- <reporting>
+ 
+   <reporting>
     <plugins>
       <plugin>
         <groupId>com.github.spotbugs</groupId>
         <artifactId>spotbugs-maven-plugin</artifactId>
         <version>4.0.4</version>
-          <configuration>
-          <xmlOutput>true</xmlOutput>
-          <!-- Optional directory to put spotbugs xdoc xml report -->
-          <xmlOutputDirectory>target/site</xmlOutputDirectory>
-        </configuration>
       </plugin>
     </plugins>
   </reporting>
